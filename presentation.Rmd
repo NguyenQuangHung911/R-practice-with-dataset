@@ -1,6 +1,10 @@
 ---
-title: "Presentaion"
-output: html_document
+title: "Presentation"
+author: "Nhom"
+date: "1/4/2021"
+output:
+  ioslides_presentation: default
+  powerpoint_presentation: default
 ---
 
 ```{r setup, include=FALSE}

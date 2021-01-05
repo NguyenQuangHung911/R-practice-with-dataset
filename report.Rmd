@@ -17,37 +17,26 @@ library(openintro)
 Lấy dữ liệu từ file csv
 
 ```{r}
-chinese_finance <- read.csv("aiddatas_global_chinese_official_finance_dataset_2000_2014.csv")
+get_it_dunn_run <- read.csv("get_it_dunn_run.csv")
 ```
 
 2. Thông tin về tập dữ liệu như sau:
 
 | Biến                          |  Mô tả
 |:----------------|:--------------------------------
-|`ï.._id`                       | Xếp hạng theo trung vị của thu nhập (median earnings)
-|`project_id`                   | Mã ngành
-|`recommended_for_research`     | Tên chuyên ngành
-|`umbrella                 `    | Nhóm ngành
-|`year                     `    | Tổng số sinh viên của chuyên ngành
-|`Sample_size`                  | Kích cỡ mẫu của sinh viên có việc làm toàn thời gian, quanh năm (được sử dụng cho tính thu nhập trung vị)
-|`Men`                          | Số sinh viên nam
-|`Women`                        | Số sinh viên nữ
-|`ShareWomen`                   | Tỷ lệ nữ
-|`Employed`                     | Số sinh viên có việc làm
-|`Employed_full_time`           | Số sinh viên có việc làm toàn thời gian (>= 35 giờ/tuần)
-|`Employed_part_time`           | Số sinh viên có việc làm bán thời gian (< 35 giờ/tuần)
-|`Employed_full_time_yearround` | Số sinh viên có việc làm ít nhất 50 tuần và ít nhất 35 giờ/tuần
-|`Unemployed`                   | Số sinh viên thất nghiệp
-|`Unemployment_rate`            | Tỷ lệ sinh viên thất nghiệp, tính bằng Unemployed / (Unemployed + Employed)
-|`Median`                       | Thu nhập trung vị của lao động toàn thời gian, quanh năm
-|`P25th`                        | 25th percentile của thu nhập
-|`P75th`                        | 75th percentile của thu nhập
-|`College_jobs`                 | Số công việc yêu cầu cần có bằng đại học
-|`Non_college_jobs`             | Số công việc không cần có bằng đại học
-|`Low_wage_jobs`                | Số lượng công việc lương thấp
+|`date`                       | Ngày tháng
+|`race`                       | Loại đường đua
+|`bib_num`                    | Năm sinh
+|`first_name                 `| Tên đầu
+|`last_initial`               | 
+|`sex`                        | Giới tính
+|`age`                        | Số sinh viên nam
+|`city`                       | Số sinh viên nữ
+|`state`                      | Tỷ lệ nữ
+|`run_time_minutes `          | Số sinh viên có việc làm
 
 ```{r}
-glimpse(chinese_finance)
+glimpse(get_it_dunn_run)
 ```
 Các biến phân loại gồm:
 

@@ -7,22 +7,76 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+Khai báo các thư viện sử dụng
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+library(dplyr)
+library(openintro)
 ```
 
-## Including Plots
+Lấy dữ liệu từ file csv
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+chinese_finance <- read.csv("aiddatas_global_chinese_official_finance_dataset_2000_2014.csv")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+2. Thông tin về tập dữ liệu như sau:
+
+| Biến                          |  Mô tả
+|:----------------|:--------------------------------
+|`ï.._id`                       | Xếp hạng theo trung vị của thu nhập (median earnings)
+|`project_id`                   | Mã ngành
+|`recommended_for_research`     | Tên chuyên ngành
+|`umbrella                 `    | Nhóm ngành
+|`year                     `    | Tổng số sinh viên của chuyên ngành
+|`Sample_size`                  | Kích cỡ mẫu của sinh viên có việc làm toàn thời gian, quanh năm (được sử dụng cho tính thu nhập trung vị)
+|`Men`                          | Số sinh viên nam
+|`Women`                        | Số sinh viên nữ
+|`ShareWomen`                   | Tỷ lệ nữ
+|`Employed`                     | Số sinh viên có việc làm
+|`Employed_full_time`           | Số sinh viên có việc làm toàn thời gian (>= 35 giờ/tuần)
+|`Employed_part_time`           | Số sinh viên có việc làm bán thời gian (< 35 giờ/tuần)
+|`Employed_full_time_yearround` | Số sinh viên có việc làm ít nhất 50 tuần và ít nhất 35 giờ/tuần
+|`Unemployed`                   | Số sinh viên thất nghiệp
+|`Unemployment_rate`            | Tỷ lệ sinh viên thất nghiệp, tính bằng Unemployed / (Unemployed + Employed)
+|`Median`                       | Thu nhập trung vị của lao động toàn thời gian, quanh năm
+|`P25th`                        | 25th percentile của thu nhập
+|`P75th`                        | 75th percentile của thu nhập
+|`College_jobs`                 | Số công việc yêu cầu cần có bằng đại học
+|`Non_college_jobs`             | Số công việc không cần có bằng đại học
+|`Low_wage_jobs`                | Số lượng công việc lương thấp
+
+```{r}
+glimpse(chinese_finance)
+```
+Các biến phân loại gồm:
+
+
+Vẽ sơ đồ cho các biến phân loại:
+
+```{r}
+
+```
+
+Các biến số gồm:
+
+
+Vẽ sơ đồ cho các biến số và tính các summary statistics:
+
+```{r}
+
+```
+
+3. Chọn 3 biến phân loại và 1 biến số:
+
+
+```{r}
+
+```
+
+4. Kiểm định giả thuyết và xây dựng khoảng tin cậy
+
+```{r}
+
+```
+

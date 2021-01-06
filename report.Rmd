@@ -11,52 +11,102 @@ Khai báo các thư viện sử dụng
 
 ```{r}
 library(dplyr)
-library(openintro)
+library(statsr)
 ```
 
-Lấy dữ liệu từ file csv
+1. Thông tin của tập dữ liệu và hiển thị sơ bộ
+
+#Nguồn tham khảo:
+Tên: High School and Beyond survey
+Tổ chức sở hữu: OpenIntro
+Link: https://www.openintro.org/data/index.php?data=hsb2
+Tổ chức thu thập dữ liệu: Đại học California tại Los Angeles (UCLA)
+Link của tổ chức thu thập dữ liệu: UCLA Academic Technology Services, http://www.ats.ucla.edu/stat/data/hsb2.csv
+File dữ liệu: hsb2.csv
+
+# Giới thiệu
+Hai trăm quan sát được lấy mẫu ngẫu nhiên từ cuộc khảo sát Trung học, một cuộc Nghiên cứu được thực hiện trên học sinh của Trung tâm Thống kê Giáo dục Quốc gia.
 
 ```{r}
-get_it_dunn_run <- read.csv("get_it_dunn_run.csv")
+# Hiển thị sơ bộ
+students_scores <- read.csv("hsb2.csv")
+students_scores
 ```
 
-2. Thông tin về tập dữ liệu như sau:
+Các cột điểm read, write, math, science, socst dưới đây đều tính theo cột điểm 100
 
 | Biến                          |  Mô tả
 |:----------------|:--------------------------------
-|`date`                       | Ngày tháng
-|`race`                       | Loại đường đua
-|`bib_num`                    | Năm sinh
-|`first_name                 `| Tên đầu
-|`last_initial`               | 
-|`sex`                        | Giới tính
-|`age`                        | Số sinh viên nam
-|`city`                       | Số sinh viên nữ
-|`state`                      | Tỷ lệ nữ
-|`run_time_minutes `          | Số sinh viên có việc làm
+|`id`                           | Mã số học sinh
+|`gender`                       | Giới tính gồm 2 loại: male và female
+|`race`                         | Chủng tộc gồm 4 loại: african american, asian, hispanic và white
+|`ses`                          | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high
+|`schtyp`                       | Loại trường gồm 2 loại: public and private
+|`prog`                         | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational
+|`read`                         | Điểm đọc
+|`write`                        | Điểm viết
+|`math`                         | Điểm toán
+|`science`                      | Điểm khoa học
+|`socst`                        | Điểm công tác xã hội
 
 ```{r}
-glimpse(get_it_dunn_run)
+glimpse(students_scores)
 ```
+
+2. Phân tích tổng quan các biến trong tập dữ liệu (EDA)
+
 Các biến phân loại gồm:
 
+| Biến                          |  Mô tả
+|:----------------|:--------------------------------
+|`gender`                       | Giới tính gồm 2 loại: male và female
+|`race`                         | Chủng tộc gồm 4 loại: african american, asian, hispanic và white
+|`ses`                          | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high
+|`schtyp`                       | Loại trường gồm 2 loại: public and private
+|`prog`                         | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational
 
-Vẽ sơ đồ cho các biến phân loại:
+Vẽ biểu đồ cho các biến phân loại:
 
 ```{r}
+# Biểu đồ cho cột gender
+
+# Biểu đồ cho cột race
+pc(City, main="Race")
+#Biểu đồ cho cột ses 
+
+#Biểu đồ cho cột schtyp
+
+#Biểu đồ cho cột prog
 
 ```
 
 Các biến số gồm:
 
+| Biến                          |  Mô tả
+|:----------------|:--------------------------------
+|`read`                         | Điểm đọc
+|`write`                        | Điểm viết
+|`math`                         | Điểm toán
+|`science`                      | Điểm khoa học
+|`socst `                       | Điểm công tác xã hội
 
-Vẽ sơ đồ cho các biến số và tính các summary statistics:
+Vẽ biểu đồ cho các biến số và tính các summary statistics:
 
 ```{r}
+#Biểu đồ cho cột read
+
+#Biểu đồ cho cột write
+
+#Biểu đồ cho cột math
+
+#Biểu đồ cho cột science
+
+#Biểu đồ cho cột socst
 
 ```
 
 3. Chọn 3 biến phân loại và 1 biến số:
+
 
 
 ```{r}

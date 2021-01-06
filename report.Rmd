@@ -71,7 +71,13 @@ Vẽ biểu đồ cho các biến phân loại:
 # Biểu đồ cho cột gender
 
 # Biểu đồ cho cột race
-pc(City, main="Race")
+race_data <- students_scores %>%
+  count(students_scores$race)
+race_data
+colors_data <- c("black","yellow","red","white")
+pie(race_data$n, labels = race_data$`students_scores$race`, col = colors_data, main="Pie Chart of race")
+legend("topright", race_data$`students_scores$race`, 
+       cex = 0.8, fill = colors_data)
 #Biểu đồ cho cột ses 
 
 #Biểu đồ cho cột schtyp
@@ -94,7 +100,15 @@ Vẽ biểu đồ cho các biến số và tính các summary statistics:
 
 ```{r}
 #Biểu đồ cho cột read
-
+read_data <- students_scores %>%
+  count(students_scores$read) %>%
+  nrow()
+#read_data
+hist(students_scores$read,
+     include.lowest = TRUE, right = TRUE, breaks = read_data,
+     main = paste("Histogram of score_read"),
+     xlim = range(min(students_scores$read),max(students_scores$read)+5), ylim = NULL,
+     xlab = "Điểm", ylab = "Tần số")
 #Biểu đồ cho cột write
 
 #Biểu đồ cho cột math
@@ -107,11 +121,28 @@ Vẽ biểu đồ cho các biến số và tính các summary statistics:
 
 3. Chọn 3 biến phân loại và 1 biến số:
 
+Tính và so sánh kích cỡ hai mẫu chia theo giới tính
+```{r}
+students_scores %>%
+  count(students_scores$schtyp)
+```
 
+
+
+Tính và so sánh kích cỡ hai mẫu chia theo giới tính
+```{r}
+divide_data <- students_scores %>%
+  count(students_scores$gender)
+divide_data
+```
+Do việc chia mẫu dựa trên biến phân loại theo giới tính sẽ có kích thước gần giống nhau nên ta sẽ chọn biến phân loại là giới tính đễ tạo ra hai mẫu.
+
+Biểu đồ thanh của hai mẫu được chia dựa trên biến phân loại giới tính
 
 ```{r}
 
 ```
+
 
 4. Kiểm định giả thuyết và xây dựng khoảng tin cậy
 

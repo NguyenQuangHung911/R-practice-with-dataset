@@ -87,7 +87,9 @@ Các bước thực hiện project
 		sau đó giới thiệu các kiểm định giả thuyết và khoảng tin cậy mà họ dự định thực hiện và tạo trong giai đoạn này của đề tài.
 		
 		Đối với kiểm định giả thuyết một tỷ lệ, quần thể quan tâm là tất cả dữ liệu chưa được thu thập và mẫu là tập dữ liệu đang dùng. 
-		Sinh viên được yêu cầu giới thiệu ngắn gọn giải thích kiểm định mà các em định chạy, biểu đồ bánh (pie chart) thể hiện biến số quan tâm bao gồm tiêu đề và phần trăm trong mỗi loại, các bước của phép kiểm định giả thuyết (đặt giả thuyết, chuẩn bị, tính toán và diễn giải), và kết luận cuối cùng liên quan đến yêu cầu ban đầu.
+		Sinh viên được yêu cầu giới thiệu ngắn gọn giải thích kiểm định mà các em định chạy, 
+		biểu đồ bánh (pie chart) thể hiện biến số quan tâm bao gồm tiêu đề và phần trăm trong mỗi loại, 
+		các bước của phép kiểm định giả thuyết (đặt giả thuyết, chuẩn bị, tính toán và diễn giải), và kết luận cuối cùng liên quan đến yêu cầu ban đầu.
 		
 		Khoảng tin cậy một tỷ lệ tương ứng cho tỷ lệ quần thể đã được tính trong kết quả của kiểm định giả thuyết đầu. 
 		Sinh viên cần giải thích những gì họ dự định để ước tính xác định mức độ tin cậy thích hợp, 

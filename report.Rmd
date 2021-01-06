@@ -69,7 +69,16 @@ Vẽ biểu đồ cho các biến phân loại:
 
 ```{r}
 # Biểu đồ cho cột gender
+gender_data <- students_scores %>%
+  count(students_scores$gender)
+gender_data
+colors_data <- c("pink","red")
+pie(gender_data$n, labels = gender_data$`students_scores$gender`, col = colors_data, main="Pie Chart of gender")
+legend("topright", gender_data$`students_scores$gender`, 
+       cex = 0.8, fill = colors_data)
+```
 
+```{r}
 # Biểu đồ cho cột race
 race_data <- students_scores %>%
   count(students_scores$race)
@@ -78,13 +87,41 @@ colors_data <- c("black","yellow","red","white")
 pie(race_data$n, labels = race_data$`students_scores$race`, col = colors_data, main="Pie Chart of race")
 legend("topright", race_data$`students_scores$race`, 
        cex = 0.8, fill = colors_data)
-#Biểu đồ cho cột ses 
-
-#Biểu đồ cho cột schtyp
-
-#Biểu đồ cho cột prog
-
 ```
+
+```{r}
+#Biểu đồ cho cột ses 
+ses_data <- students_scores %>%
+  count(students_scores$ses)
+ses_data
+colors_data <- c("green","red","yellow")
+pie(ses_data$n, labels = ses_data$`students_scores$ses`, col = colors_data, main="Pie Chart of Socio economic status of student's family")
+legend("topright", ses_data$`students_scores$ses`, 
+       cex = 0.8, fill = colors_data)
+```
+
+```{r}
+#Biểu đồ cho cột schtyp
+schtyp_data <- students_scores %>%
+  count(students_scores$schtyp)
+schtyp_data
+colors_data <- c("green","blue")
+pie(schtyp_data$n, labels = schtyp_data$`students_scores$schtyp`, col = colors_data, main="Pie Chart of school type")
+legend("topright", schtyp_data$`students_scores$schtyp`, 
+       cex = 0.8, fill = colors_data)
+```
+
+```{r}
+#Biểu đồ cho cột prog
+prog_data <- students_scores %>%
+  count(students_scores$prog)
+prog_data
+colors_data <- c("green","blue","yellow")
+pie(prog_data$n, labels = prog_data$`students_scores$prog`, col = colors_data, main="Pie Chart of program")
+legend("topright", prog_data$`students_scores$prog`, 
+       cex = 0.8, fill = colors_data)
+```
+
 
 Các biến số gồm:
 
@@ -103,31 +140,68 @@ Vẽ biểu đồ cho các biến số và tính các summary statistics:
 read_data <- students_scores %>%
   count(students_scores$read) %>%
   nrow()
-#read_data
 hist(students_scores$read,
      include.lowest = TRUE, right = TRUE, breaks = read_data,
      main = paste("Histogram of score_read"),
      xlim = range(min(students_scores$read),max(students_scores$read)+5), ylim = NULL,
      xlab = "Điểm", ylab = "Tần số")
-#Biểu đồ cho cột write
-
-#Biểu đồ cho cột math
-
-#Biểu đồ cho cột science
-
-#Biểu đồ cho cột socst
-
 ```
+```{r}
+#Biểu đồ cho cột write
+write_data <- students_scores %>%
+  count(students_scores$write) %>%
+  nrow()
+hist(students_scores$write,
+     include.lowest = TRUE, right = TRUE, breaks = write_data,
+     main = paste("Histogram of score_write"),
+     xlim = range(min(students_scores$write),max(students_scores$write)+5), ylim = NULL,
+     xlab = "Điểm", ylab = "Tần số")
+```
+
+```{r}
+#Biểu đồ cho cột math
+math_data <- students_scores %>%
+  count(students_scores$math) %>%
+  nrow()
+hist(students_scores$math,
+     include.lowest = TRUE, right = TRUE, breaks = write_data,
+     main = paste("Histogram of score_math"),
+     xlim = range(min(students_scores$math),max(students_scores$math)+5), ylim = NULL,
+     xlab = "Điểm", ylab = "Tần số")
+```
+
+```{r}
+#Biểu đồ cho cột science
+science_data <- students_scores %>%
+  count(students_scores$science) %>%
+  nrow()
+hist(students_scores$science,
+     include.lowest = TRUE, right = TRUE, breaks = science_data,
+     main = paste("Histogram of score_science"),
+     xlim = range(min(students_scores$science),max(students_scores$science)+5), ylim = NULL,
+     xlab = "Điểm", ylab = "Tần số")
+```
+
+```{r}
+#Biểu đồ cho cột socst
+socst_data <- students_scores %>%
+  count(students_scores$socst) %>%
+  nrow()
+hist(students_scores$socst,
+     include.lowest = TRUE, right = TRUE, breaks = socst_data,
+     main = paste("Histogram of score_socst"),
+     xlim = range(min(students_scores$socst),max(students_scores$socst)+5), ylim = NULL,
+     xlab = "Điểm", ylab = "Tần số")
+```
+
 
 3. Chọn 3 biến phân loại và 1 biến số:
 
-Tính và so sánh kích cỡ hai mẫu chia theo giới tính
+Tính và so sánh kích cỡ hai mẫu chia theo loại trường
 ```{r}
 students_scores %>%
   count(students_scores$schtyp)
 ```
-
-
 
 Tính và so sánh kích cỡ hai mẫu chia theo giới tính
 ```{r}

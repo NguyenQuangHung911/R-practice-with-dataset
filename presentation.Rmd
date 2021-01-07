@@ -1,5 +1,5 @@
 ---
-title: "ĐỀ XUẤT BÁO CÁO NHẬP MÔN LẬP TRÌNH R CHO PHÂN TÍCH"
+title: "ĐỀ XUẤT BÁO CÁO LẬP TRÌNH R CHO PHÂN TÍCH"
 date: "1/4/2021"
 output:
   ioslides_presentation:
@@ -17,30 +17,65 @@ Quách Đình Hoàng
 
 Các thành viên của nhóm:
 
-- Ngô Trí Huy
-- Nguyễn Quang Hùng
-- Nguyễn Đăng Khoa
+- Ngô Trí Huy - 18133015
+- Nguyễn Quang Hùng - 18133016
+- Nguyễn Đăng Khoa - 18133022
+
+## Nội dung chính
+
+- 1 Giới thiệu đề dataset
+- 2 Phân tích tổng quan các biến trong dataset
+- 3 Phân tích và thực hiện so sánh
 
 ## Giới thiệu về dataset
 
 -Tên: High School and Beyond survey
+
 -Tổ chức sở hữu: OpenIntro
+
 -Link: https://www.openintro.org/data/index.php?data=hsb2
+
 -Tổ chức thu thập dữ liệu: Đại học California tại Los Angeles (UCLA)
+
 -Link của tổ chức thu thập dữ liệu: UCLA Academic Technology Services, http://www.ats.ucla.edu/stat/data/hsb2.csv
+
 -File dữ liệu: hsb2.csv
 
-## Slide with Bullets
+## Phân tích tổng quan các biến 1
 
-## Slide with R Output
+Các cột điểm read, write, math, science, socst dưới đây đều tính theo cột điểm 100
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
+Rows: 200
+Columns: 11
+- id      <int> | Mã số học sinh
 
-## Slide with Plot
+- gender  <chr> | Giới tính gồm 2 loại: male và female (nam và nữ)
 
-```{r pressure}
-plot(pressure)
-```
+- race    <chr> | Chủng tộc gồm 4 loại: african american, asian, hispanic và white (gốc Phi, châu Á, Nam Mỹ và da trắng)
 
+- ses     <chr> | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high (thấp, trung và cao)
+
+- schtyp  <chr> | Loại trường gồm 2 loại: public and private (trường công và trường tư)
+
+- prog    <chr> | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational (giáo dục bậc cao, học thuật, kỹ thuật)
+
+## Phân tích tổng quan các biến 2
+
+- read    <int> | Điểm kiểm tra đọc
+
+- write   <int> | Điểm kiểm tra viết
+
+- math    <int> | Điểm môn toán
+
+- science <int> | Điểm môn khoa học
+
+- socst   <int> | Điểm công tác xã hội
+
+## Phân tích và thực hiện so sánh
+- Dựa trên các số liệu đã có ta tìm ra học sinh giỏi là học sinh có các yếu tố nào(các biến phân loại).
+- Ví dụ: học sinh nữ, học trường công, chủng tộc da trắng,... có xác suất học giỏi nhất.
+- Phân tích học sinh nào học môn nào tốt hơn.
+- Môn nào học sinh nào học tốt hơn?
+- Học sinh nào có điểm cao nhất?
+- Bằng cách tương tự tìm ra học sinh yếu nhất, và cải thiện trình độ học tập.
+- Kết luận, từ đó đưa ra các phương án để cải thiện trình độ học tập của học sinh để đạt các điểm số cao hơn.

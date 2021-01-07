@@ -1,6 +1,9 @@
 ---
 title: "Report"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -72,8 +75,9 @@ Vẽ biểu đồ cho các biến phân loại:
 gender_data <- students_scores %>%
   count(students_scores$gender)
 gender_data
+piepercent<- round(100*gender_data$n/sum(gender_data$n), 1)
 colors_data <- c("pink","red")
-pie(gender_data$n, labels = gender_data$`students_scores$gender`, col = colors_data, main="Pie Chart of gender")
+pie(gender_data$n, labels = piepercent, col = colors_data, main="Pie Chart of gender")
 legend("topright", gender_data$`students_scores$gender`, 
        cex = 0.8, fill = colors_data)
 ```
@@ -83,8 +87,9 @@ legend("topright", gender_data$`students_scores$gender`,
 race_data <- students_scores %>%
   count(students_scores$race)
 race_data
+piepercent<- round(100*race_data$n/sum(race_data$n), 1)
 colors_data <- c("black","yellow","red","white")
-pie(race_data$n, labels = race_data$`students_scores$race`, col = colors_data, main="Pie Chart of race")
+pie(race_data$n, labels = piepercent, col = colors_data, main="Pie Chart of race")
 legend("topright", race_data$`students_scores$race`, 
        cex = 0.8, fill = colors_data)
 ```
@@ -94,8 +99,9 @@ legend("topright", race_data$`students_scores$race`,
 ses_data <- students_scores %>%
   count(students_scores$ses)
 ses_data
+piepercent<- round(100*ses_data$n/sum(ses_data$n), 1)
 colors_data <- c("green","red","yellow")
-pie(ses_data$n, labels = ses_data$`students_scores$ses`, col = colors_data, main="Pie Chart of Socio economic status of student's family")
+pie(ses_data$n, labels = piepercent, col = colors_data, main="Pie Chart of Socio economic status of student's family")
 legend("topright", ses_data$`students_scores$ses`, 
        cex = 0.8, fill = colors_data)
 ```
@@ -105,8 +111,9 @@ legend("topright", ses_data$`students_scores$ses`,
 schtyp_data <- students_scores %>%
   count(students_scores$schtyp)
 schtyp_data
+piepercent<- round(100*schtyp_data$n/sum(schtyp_data$n), 1)
 colors_data <- c("green","blue")
-pie(schtyp_data$n, labels = schtyp_data$`students_scores$schtyp`, col = colors_data, main="Pie Chart of school type")
+pie(schtyp_data$n, labels = piepercent, col = colors_data, main="Pie Chart of school type")
 legend("topright", schtyp_data$`students_scores$schtyp`, 
        cex = 0.8, fill = colors_data)
 ```
@@ -116,8 +123,9 @@ legend("topright", schtyp_data$`students_scores$schtyp`,
 prog_data <- students_scores %>%
   count(students_scores$prog)
 prog_data
+piepercent<- round(100*prog_data$n/sum(prog_data$n), 1)
 colors_data <- c("green","blue","yellow")
-pie(prog_data$n, labels = prog_data$`students_scores$prog`, col = colors_data, main="Pie Chart of program")
+pie(prog_data$n, labels = piepercent, col = colors_data, main="Pie Chart of program")
 legend("topright", prog_data$`students_scores$prog`, 
        cex = 0.8, fill = colors_data)
 ```
@@ -244,9 +252,20 @@ thì hai mẫu bằng nhau và ngược lại
 
 $So$ $sánh$ $thứ$ $hai$
 ```{r}
-barplot((prop.table(table(students_scores$gender,students_scores$math),margin = 2)*100), main="Biểu đồ thanh về học sinh đạt điểm toán theo tỉ lệ nam nữ ", xlab = "Điểm số", ylab = "%")
+<<<<<<< Updated upstream
+table_Gender_Math<-table(students_scores$gender,students_scores$math)
+#barplot(table(students_scores$gender,students_scores$math), main="Biểu đồ #thanh về học sinh đạt điểm toán theo tỉ lệ nam nữ ", xlab = "Tỉ lệ nam #nữ",freq=FALSE)
+table_Gender_Math
+table_Gender_Math<- table(table_Gender_Math)
+barplot(height = table(factor(table_Gender_Math, levels=min(table_Gender_Math):max(table_Gender_Math)))/length(table_Gender_Math),
+        ylab = "proportion",
+        xlab = "values",
+        main = "histogram of x (proportions)")
+=======
+barplot((prop.table(table(students_scores$gender,students_scores$math),margin = 2)*100), main='Biểu đồ thanh về học sinh đạt điểm toán theo tỉ lệ nam nữ ', xlab = "Điểm số", ylab = "%")
 
 ```
+Khi nhìn vaod biểu đồ ta thấy rằng tỉ lệ nữ chiếm điện tích nhiều hơn so với tỉ lện, và điểm số của nữ cũng cao hơn so với nam
 $So$ $sánh$ $thứ$ $ba$
 Chon
 ```{r}
@@ -255,11 +274,16 @@ prop.table(table(students_scores$schtyp,students_scores$math))*100
 ```{r}
 table(students_scores$gender,students_scores$math,students_scores$schtyp)
 
+>>>>>>> Stashed changes
 ```
 
 4. Kiểm định giả thuyết và xây dựng khoảng tin cậy
 
 ```{r}
-
+table_tgender<-table(students_scores$gender,students_scores$math)
+t.test(table_tgender)
+table_tschtyp<-table(students_scores$schtyp,students_scores$math)
+t.test(table_tschtyp)
+t.test(table_tgender,table_tschtyp)
 ```
 

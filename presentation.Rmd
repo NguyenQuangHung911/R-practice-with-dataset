@@ -42,24 +42,24 @@ Các thành viên của nhóm:
 -File dữ liệu: hsb2.csv
 
 ## Phân tích tổng quan các biến 1
-
 Các cột điểm read, write, math, science, socst dưới đây đều tính theo cột điểm 100
 
 Rows: 200
 Columns: 11
+
 - id      <int> | Mã số học sinh
 
 - gender  <chr> | Giới tính gồm 2 loại: male và female (nam và nữ)
 
 - race    <chr> | Chủng tộc gồm 4 loại: african american, asian, hispanic và white (gốc Phi, châu Á, Nam Mỹ và da trắng)
 
-- ses     <chr> | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high (thấp, trung và cao)
+- ses     chr> | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high (thấp, trung và cao)
 
 - schtyp  <chr> | Loại trường gồm 2 loại: public and private (trường công và trường tư)
 
-- prog    <chr> | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational (giáo dục bậc cao, học thuật, kỹ thuật)
-
 ## Phân tích tổng quan các biến 2
+
+- prog    <chr> | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational (giáo dục bậc cao, học thuật, kỹ thuật)
 
 - read    <int> | Điểm kiểm tra đọc
 
@@ -70,5 +70,7 @@ Columns: 11
 - science <int> | Điểm môn khoa học
 
 - socst   <int> | Điểm công tác xã hội
+
+
 
 ## Phân tích và thực hiện so sánh

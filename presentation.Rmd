@@ -30,12 +30,45 @@ Các thành viên của nhóm:
 ## Giới thiệu về dataset
 
 -Tên: High School and Beyond survey
+
 -Tổ chức sở hữu: OpenIntro
+
 -Link: https://www.openintro.org/data/index.php?data=hsb2
+
 -Tổ chức thu thập dữ liệu: Đại học California tại Los Angeles (UCLA)
+
 -Link của tổ chức thu thập dữ liệu: UCLA Academic Technology Services, http://www.ats.ucla.edu/stat/data/hsb2.csv
+
 -File dữ liệu: hsb2.csv
 
-## Phân tích tổng quan các biến trong dataset
+## Phân tích tổng quan các biến 1
+
+Các cột điểm read, write, math, science, socst dưới đây đều tính theo cột điểm 100
+
+Rows: 200
+Columns: 11
+- id      <int> | Mã số học sinh
+
+- gender  <chr> | Giới tính gồm 2 loại: male và female (nam và nữ)
+
+- race    <chr> | Chủng tộc gồm 4 loại: african american, asian, hispanic và white (gốc Phi, châu Á, Nam Mỹ và da trắng)
+
+- ses     <chr> | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high (thấp, trung và cao)
+
+- schtyp  <chr> | Loại trường gồm 2 loại: public and private (trường công và trường tư)
+
+- prog    <chr> | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational (giáo dục bậc cao, học thuật, kỹ thuật)
+
+## Phân tích tổng quan các biến 2
+
+- read    <int> | Điểm kiểm tra đọc
+
+- write   <int> | Điểm kiểm tra viết
+
+- math    <int> | Điểm môn toán
+
+- science <int> | Điểm môn khoa học
+
+- socst   <int> | Điểm công tác xã hội
 
 ## Phân tích và thực hiện so sánh

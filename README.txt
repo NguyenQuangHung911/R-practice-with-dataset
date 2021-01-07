@@ -12,14 +12,17 @@ math - Standardized math score.
 science - Standardized science score.
 socst - Standardized social studies score.
 
-|`id`                           | Mã số học sinh
-|`gender`                       | Giới tính gồm 2 loại: male và female (nam và nữ)
-|`race`                         | Chủng tộc gồm 4 loại: african american, asian, hispanic và white (gốc Phi, châu Á, Nam Mỹ và da trắng)
-|`ses`                          | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high (thấp, trung và cao)
-|`schtyp`                       | Loại trường gồm 2 loại: public and private (trường công và trường tư)
-|`prog`                         | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational (giáo dục bậc cao, học thuật, kỹ thuật)
-|`read`                         | Điểm kiểm tra đọc
-|`write`                        | Điểm kiểm tra viết
-|`math`                         | Điểm môn toán
-|`science`                      | Điểm môn khoa học
-|`socst`                        | Điểm công tác xã hội
+Rows: 200
+Columns: 11
+$ id      <int> | Mã số học sinh
+$ gender  <chr> | Giới tính gồm 2 loại: male và female (nam và nữ)
+$ race    <chr> | Chủng tộc gồm 4 loại: african american, asian, hispanic và white (gốc Phi, châu Á, Nam Mỹ và da trắng)
+$ ses     <chr> | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high (thấp, trung và cao)
+$ schtyp  <chr> | Loại trường gồm 2 loại: public and private (trường công và trường tư)
+$ prog    <chr> | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational (giáo dục bậc cao, học thuật, kỹ thuật)
+$ read    <int> | Điểm kiểm tra đọc
+$ write   <int> | Điểm kiểm tra viết
+$ math    <int> | Điểm môn toán
+$ science <int> | Điểm môn khoa học
+$ socst   <int> | Điểm công tác xã hội
+

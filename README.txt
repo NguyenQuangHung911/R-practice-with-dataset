@@ -1,16 +1,5 @@
 Giải thích các biến của dữ liệu:
 Các cột điểm read, write, math, science, socst dưới đây đều tính theo cột điểm 100
-id - Student ID.
-gender - Student's gender
-race - Student's race
-ses - Socio economic status of student's family
-schtyp - Type of school
-prog - Type of program
-read - Standardized reading score.
-write - Standardized writing score.
-math - Standardized math score.
-science - Standardized science score.
-socst - Standardized social studies score.
 
 Rows: 200
 Columns: 11

@@ -1,27 +1,36 @@
 ---
-title: "Presentation"
-author: "Nhom"
+title: "ĐỀ XUẤT BÁO CÁO NHẬP MÔN LẬP TRÌNH R CHO PHÂN TÍCH"
 date: "1/4/2021"
 output:
-  ioslides_presentation: default
-  powerpoint_presentation: default
+  ioslides_presentation:
+    logo: logo.png
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
+## Giới thiệu giáo viên hướng dẫn và các thành viên trong nhóm
+Giáo viên hướng dẫn:
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Quách Đình Hoàng
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+Các thành viên của nhóm:
+
+- Ngô Trí Huy
+- Nguyễn Quang Hùng
+- Nguyễn Đăng Khoa
+
+## Giới thiệu về dataset
+
+-Tên: High School and Beyond survey
+-Tổ chức sở hữu: OpenIntro
+-Link: https://www.openintro.org/data/index.php?data=hsb2
+-Tổ chức thu thập dữ liệu: Đại học California tại Los Angeles (UCLA)
+-Link của tổ chức thu thập dữ liệu: UCLA Academic Technology Services, http://www.ats.ucla.edu/stat/data/hsb2.csv
+-File dữ liệu: hsb2.csv
 
 ## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
 
 ## Slide with R Output
 

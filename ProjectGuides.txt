@@ -61,7 +61,7 @@ Các bước thực hiện project
 		Một biến phân loại được sử dụng để chia dữ liệu thành 2 mẫu để thực hiện các so sánh. Báo cáo sẽ bao gồm phần giới thiệu, các so sánh các và kết luận.
 		
 		Sinh viên có thể sử dụng bất kỳ biến phân loại nào để xác định hai mẫu, nhưng các mẫu phải có kích thước gần nhau. 
-		Ví dụ so sánh giữa nam và nữ mặc dù có nhiều phương án khác mà sinh có thể chọn sử dụng. Hai mẫu được xác định trong giai đoạn này sẽ được sử dụng lại trong giai đoạn tiếp theo của đề tài.
+		Ví dụ so sánh giữa nam và nữ mặc dù có nhiều phương án khác mà sinh viên có thể chọn sử dụng. Hai mẫu được xác định trong giai đoạn này sẽ được sử dụng lại trong giai đoạn tiếp theo của đề tài.
 		
 		Trong phần giới thiệu, sinh viên xác định hai mẫu của mình, tạo biểu đồ thanh (bar chart) với tiêu đề đại diện cho hai mẫu với kích thước mẫu được xác định trên biểu đồ và giới thiệu ngắn gọn về ba phép so sánh sẽ được đưa vào báo cáo.
 		

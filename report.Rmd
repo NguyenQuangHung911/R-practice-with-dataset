@@ -196,6 +196,8 @@ hist(students_scores$socst,
 
 
 3. Chọn 3 biến phân loại và 1 biến số:
+3 Biến phân loại được chọn là race, schtyp và gender
+Biến số dùng để phân tích là math
 
 Tính và so sánh kích cỡ hai mẫu chia theo loại trường
 ```{r}
@@ -211,12 +213,46 @@ divide_data
 ```
 Do việc chia mẫu dựa trên biến phân loại theo giới tính sẽ có kích thước gần giống nhau nên ta sẽ chọn biến phân loại là giới tính đễ tạo ra hai mẫu.
 
-Biểu đồ thanh của hai mẫu được chia dựa trên biến phân loại giới tính
+Biểu đồ thanh (bar chart) của hai mẫu được chia dựa trên biến phân loại giới tính
 
 ```{r}
+barplot(table(students_scores$gender),ylim=c(0, 120), main="Biểu đồ tần số nam và nữ", names = c("Nữ","Nam"))
 
 ```
+```{r}
+boxplot(students_scores$math ~ students_scores$gender, horizontal=TRUE, main="Biểu đồ so sánh điểm toán giữa hai nhóm nam và nữ", xlab="Học sinh", col = "green")
+```
+$So$ $sánh$ $thứ$ $nhất$
+```{r}
+students_scores %>% 
+group_by(gender) %>%
+summarise(min = min(math), max = max(math),
+mean = mean(math), med = median(math),
+sd = sd(math),
+q1 = quantile(math, probs = 0.25),
+q3 = quantile(math, probs = 0.75), .groups = 'drop')
 
+```
+Ta có $N_{nam}$=91,$mean_{nam}$=52.94505, sd = 9.664784
+      $N_{nữ}$=109,$mean_{nữ}$=52.39450, sd = 9.151015
+      Xét hai mẫu có bằng nhau hay không:
+      giả thuyết: $u_{nam}$=$u_{nữ}$
+      đối thuyết: $u_{nam}$!= $u_{nữ}$
+Ta có giá trị kiểm định Z = 0.410958
+vậy chỉ khi giá trị -0.410958 < $Z_{a/2}$ < -0.410958
+thì hai mẫu bằng nhau và ngược lại
+
+$So$ $sánh$ $thứ$ $hai$
+```{r}
+table_Gender_Math<-table(students_scores$gender,students_scores$math)
+#barplot(table(students_scores$gender,students_scores$math), main="Biểu đồ #thanh về học sinh đạt điểm toán theo tỉ lệ nam nữ ", xlab = "Tỉ lệ nam #nữ",freq=FALSE)
+table_Gender_Math
+table_Gender_Math<- table(table_Gender_Math)
+barplot(height = table(factor(x, levels=min(x):max(x)))/length(x),
+        ylab = "proportion",
+        xlab = "values",
+        main = "histogram of x (proportions)")
+```
 
 4. Kiểm định giả thuyết và xây dựng khoảng tin cậy
 

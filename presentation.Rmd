@@ -21,6 +21,12 @@ Các thành viên của nhóm:
 - Nguyễn Quang Hùng
 - Nguyễn Đăng Khoa
 
+## Nội dung chính
+
+- 1 Giới thiệu đề dataset
+- 2 Phân tích tổng quan các biến trong dataset
+- 3 Phân tích và thực hiện so sánh
+
 ## Giới thiệu về dataset
 
 -Tên: High School and Beyond survey
@@ -30,17 +36,6 @@ Các thành viên của nhóm:
 -Link của tổ chức thu thập dữ liệu: UCLA Academic Technology Services, http://www.ats.ucla.edu/stat/data/hsb2.csv
 -File dữ liệu: hsb2.csv
 
-## Slide with Bullets
+## Phân tích tổng quan các biến trong dataset
 
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
-
+## Phân tích và thực hiện so sánh

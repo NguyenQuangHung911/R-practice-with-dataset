@@ -1,0 +1,24 @@
+## Giới thiệu giáo viên hướng dẫn và các thành viên trong nhóm
+## Giới thiệu
+## Dữ liệu
+## Các biến
+	### Phân tích tổng quan các biến 1
+	### Phân tích tổng quan các biến 2
+## Câu hỏi
+## Hiểu vấn đề
+	### Xem lướt qua dữ liệu
+	### Thiết kế nghiên cứu 
+		#### Xác định loại nghiên cứu
+		#### Xác định cách lấy mẫu
+## Suy ngẫm về câu hỏi
+## Phân tích dữ liệu(lặp lại 3 lần cho 3 câu hỏi)
+	### Xác định các biến có liên quan
+	### Phân tích thăm dò (Exploratory Analysis)
+		#### Xác định các biểu đồ và tóm tắt số phù hợp
+		#### Thực hiện phân tích thăm dò
+		#### Báo cáo kết quả
+		#### Xác định loại suy diễn
+		#### Thực hiện phân tích
+		#### Báo cáo kết quả
+## Kết luận
+## Tổng kết

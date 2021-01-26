@@ -1,6 +1,9 @@
 ---
 title: "Report"
-output: html_document
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -257,11 +260,26 @@ barplot(height = table(factor(table_Gender_Math, levels=min(table_Gender_Math):m
         ylab = "proportion",
         xlab = "values",
         main = "histogram of x (proportions)")
+barplot((prop.table(table(students_scores$gender,students_scores$math),margin = 2)*100), main='Biểu đồ thanh về học sinh đạt điểm toán theo tỉ lệ nam nữ ', xlab = "Điểm số", ylab = "%")
+
+```
+Khi nhìn vaod biểu đồ ta thấy rằng tỉ lệ nữ chiếm điện tích nhiều hơn so với tỉ lện, và điểm số của nữ cũng cao hơn so với nam
+$So$ $sánh$ $thứ$ $ba$
+Chon
+```{r}
+prop.table(table(students_scores$schtyp,students_scores$math))*100
+```
+```{r}
+table(students_scores$gender,students_scores$math,students_scores$schtyp)
 ```
 
 4. Kiểm định giả thuyết và xây dựng khoảng tin cậy
 
 ```{r}
-
+table_tgender<-table(students_scores$gender,students_scores$math)
+t.test(table_tgender)
+table_tschtyp<-table(students_scores$schtyp,students_scores$math)
+t.test(table_tschtyp)
+t.test(table_tgender,table_tschtyp)
 ```
 

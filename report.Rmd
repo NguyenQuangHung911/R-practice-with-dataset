@@ -244,17 +244,21 @@ thì hai mẫu bằng nhau và ngược lại
 
 $So$ $sánh$ $thứ$ $hai$
 ```{r}
+#<<<<<<< Updated upstream
+table_Gender_Math<-table(students_scores$gender,students_scores$math)
+#barplot(table(students_scores$gender,students_scores$math), main="Biểu đồ #thanh về học sinh đạt điểm toán theo tỉ lệ nam nữ ", xlab = "Tỉ lệ nam #nữ",freq=FALSE)
+table_Gender_Math
+table_Gender_Math<- table(table_Gender_Math)
+barplot(height = table(factor(table_Gender_Math, levels=min(table_Gender_Math):max(table_Gender_Math)))/length(table_Gender_Math),
+        ylab = "proportion",
+        xlab = "values",
+        main = "histogram of x (proportions)")
+#=======
 barplot((prop.table(table(students_scores$gender,students_scores$math),margin = 2)*100), main="Biểu đồ thanh về học sinh đạt điểm toán theo tỉ lệ nam nữ ", xlab = "Điểm số", ylab = "%")
 
 ```
-$So$ $sánh$ $thứ$ $ba$
-Chon
 ```{r}
-prop.table(table(students_scores$schtyp,students_scores$math))*100
-```
-```{r}
-table(students_scores$gender,students_scores$math,students_scores$schtyp)
-
+#>>>>>>> Stashed changes
 ```
 
 4. Kiểm định giả thuyết và xây dựng khoảng tin cậy

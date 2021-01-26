@@ -1,0 +1,358 @@
+---
+title: "Analysis Template"
+author: "Ngô Trí Huy - 18133015 \\ Nguyễn Quang Hùng - 18133016 \\ Nguyễn Đăng Khoa - 18133022"
+date: "26/01/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(magrittr)
+library(dplyr)
+library(lattice)
+```
+## Giới thiệu giáo viên hướng dẫn và các thành viên trong nhóm
+Giáo viên hướng dẫn:
+
+Quách Đình Hoàng
+
+Các thành viên của nhóm:
+
+- Ngô Trí Huy - 18133015
+- Nguyễn Quang Hùng - 18133016
+- Nguyễn Đăng Khoa - 18133022
+## Giới thiệu
+Đại diện toàn quốc, nghiên cứu theo chiều dọc của học sinh lớp 10 và 12 năm 1980
+Các cuộc khảo sát tiếp theo được thực hiện trong suốt những năm sau trung học của họ
+Khảo sát học sinh, giáo viên và phụ huynh của học sinh được chọn mẫu
+Bảng điểm trung học và sau trung học để nâng cao phân tích.
+
+
+## Dữ liệu
+```{r, eval=FALSE}
+data <- read.csv("hsb2.csv")
+str(data)
+head(data, 10)
+```
+
+## Các biến
+Mô tả tên các biến và ý nghĩa.
+
+## Phân tích tổng quan các biến 1
+
+- Var 1:    id      <int> | Mã số học sinh
+
+- Var 2:    gender  <chr> | Giới tính gồm 2 loại: male và female (nam và nữ)
+
+- var 3:    race    <chr> | Chủng tộc gồm 4 loại: african american, asian, hispanic và white (gốc Phi, châu Á, Nam Mỹ và da trắng)
+
+- Var 4:    ses     <chr> | Điều kiện kinh tế của học sinh gồm 3 loại:  low, middle và high (thấp, trung và cao)
+
+- Var 5:    schtyp  <chr> | Loại trường gồm 2 loại: public and private (trường công và trường tư)
+
+- var 6:    prog    <chr> | Chương trình giảng dạy gồm 3 loại: general, academic, and vocational (giáo dục bậc cao, học thuật, kỹ thuật)
+
+## Phân tích tổng quan các biến 2
+
+- Var 7:    read    <int> | Điểm kiểm tra đọc
+
+- Var 8:    write   <int> | Điểm kiểm tra viết
+
+- var 9:    math    <int> | Điểm môn toán
+  
+- Var 10:   science <int> | Điểm môn khoa học
+
+- Var 11:   socst   <int> | Điểm môn xã hội
+
+- var 12:   average <int> | Điểm trung bình các môn.
+
+## Câu hỏi
+Mô tả các câu hỏi mà nhóm sẽ dùng tập dữ liệu để trả lời.
+
+Q1. Dữ liệu có cung cấp bằng chứng kết cho thấy kết quả điểm của môn khoa học có phụ thuộc vào giới tính hay không?
+
+Q2. Tìm hiểu xem môn khoa học có khó hơn môn xã hội hay không?
+
+Q3. Dữ liệu có cung cấp bằng chứng cho thấy việc điểm trung bình có thực sự phản ánh kết quả học tập của học sinh hay không?
+
+
+## Hiểu vấn đề
+Trước khi bắt đầu xem xét các câu hỏi cụ thể, chúng ta sẽ xem xét một số đặc điểm chung của vấn đề, chẳng hạn như cấu trúc dữ liệu, cách dữ liệu được thu thập và thiết kế nghiên cứu tổng thể.
+
+Hai trăm đối tượng được lấy mẫu ngẫu nhiên từ cuộc khảo sát Trung học và các vùng khác, một cuộc khảo sát được thực hiện trên học sinh trung học phổ thông của Trung tâm Thống kê Giáo dục Quốc gia.
+
+### Xem lướt qua dữ liệu
+- Chúng ta sẽ bắt đầu bằng cách trả lời một số câu hỏi về dữ liệu. Trả lời một số câu hỏi đơn giản trên dữ liệu để hiểu hơn về dữ liệu.
+
+-Tên: High School and Beyond survey
+
+-Tổ chức sở hữu: OpenIntro
+
+-Link: https://www.openintro.org/data/index.php?data=hsb2
+
+-Tổ chức thu thập dữ liệu: National Center for Education Statistics (NCES)
+
+-Link của tổ chức thu thập dữ liệu: https://nces.ed.gov/
+
+-File dữ liệu: hsb2.csv
+
+
+### Thiết kế nghiên cứu 
+Bước tiếp mô tả cách lấy mẫu và thiết kế nghiên cứu, những vấn đề này có ý nghĩa về tính tổng quát hóa của kết quả và loại kết luận bạn có thể rút ra từ chúng.
+
+
+
+#### Xác định loại nghiên cứu
+- Nghiên cứu này là một nghiên cứu quan sát (observational study) hay thí nghiệm (experiment)?
+- Nghiên cứu quan sát (observational study)
+
+#### Xác định cách lấy mẫu
+- Mô tả ngắn gọn những gì mà phát biểu bài toán cho chúng ta biết về cách các cá nhân trong tập dữ liệu được chọn để đưa vào mẫu (simple random sampling, cluster sampling, stratified sampling, multistage sampling).
+
+- Lấy mẫu ngẫu nhiên(randomly sampled)
+
+## Suy ngẫm về câu hỏi
+- Trong bước đầu tiên này, chúng ta nghĩ về câu hỏi và sử dụng trực giác và/hoặc kinh nghiệm của mình để thử và dự đoán kết quả sẽ hiển thị. Sau đó, chúng ta sẽ so sánh những gì chúng ta nghĩ ban đầu với những gì chúng ta thực sự tìm thấy khi chúng ta phân tích dữ liệu.
+
+Q1: Nam sẽ học giởi hơn nữ
+Q2: Môn khoa học sẽ khó hơn
+Q3: Điểm trung bình có thể phản ánh năng lực học tập của học sinh
+
+- Trước khi phân tích dữ liệu và khám phá các câu hỏi, hãy cố gắng dự đoán những gì dữ liệu sẽ thể hiện (sử dụng kinh nghiệm và trực giác của riêng bạn).
+
+
+## Phân tích dữ liệu
+- Trong bước này, chúng ta chọn và tiến hành các phân tích cần thiết để giải quyết câu hỏi hiện tại.
+
+### Xác định các biến có liên quan
+- (Các) biến nào trong số những biến trong tập dữ liệu có liên quan đặc biệt đến câu hỏi hiện tại? (Các) biến này thuộc loại nào (quantitative hay categorical)?
+
+Biến giải thích: gender  <chr> | Giới tính gồm 2 loại: male và female (nam và nữ), loại categorical
+
+Biến phản hồi:   science <int> | Điểm môn khoa học
+
+                  socst   <int> | Điểm môn xã hội
+
+                  average <int> | Điểm trung bình các môn.
+
+                  , loại quantitative
+
+
+### Phân tích thăm dò (Exploratory Analysis)
+- Bây giờ chúng ta đã xác định và phân loại (các) biến có liên quan, chúng ta sử dụng phương pháp phân tích dữ liệu thăm dò để giúp chúng ta tóm tắt các đặc điểm quan trọng của dữ liệu.
+
+#### Xác định các biểu đồ và tóm tắt số phù hợp
+- Trong các biểu đồ sau, biểu đồ nào là phù hợp cho (các) biến này? 
+
+  - Side-by-side boxplots
+  
+  - Scatterplot
+  
+  - Two-way Table
+  
+  - Pie chart 
+  
+  - Histogram
+
+$Histogram$ là biểu đồ phù hợp cho các biến này
+
+
+- (Các) tóm tắt số có ý nghĩa để bổ sung cho biểu đồ trên là gì? 
+
+  - Five-numbers summary
+  
+  - Phần trăm theo nhóm
+  
+  - Hệ số tương quan
+  
+  - Phần trăm theo điều kiện
+
+- Trả lời: Five-numbers summary,Phần trăm theo nhóm, Phần trăm theo điều kiện
+
+- Sử dụng biều đồ và tóm tắt số này, bạn sẽ làm được điều nào sau đây:
+
+  - Mô tả các đặc trưng của một phân bố cho biến số
+  
+  - Mô tả các đặc trưng của một phân bố cho biến phân loại
+  
+  - Mô tả mối quan hệ của hai biến số
+  
+  - Mô tả mối quan hệ của hai biến phân loại
+  
+  - Mô tả phân bố của một biến số theo các nhóm của một biến phân loại
+
+  - Trả lời: Mô tả phân bố của một biến số theo các nhóm của một biến phân loại
+  
+#### Thực hiện phân tích thăm dò
+```{r, eval=FALSE}
+# x là explanatory variable
+# y là response variable
+# Viết code của bạn ở đây để thực hiện phân tích thăm dò
+# plot
+plot(factor(data$gender), data$science)
+plot(factor(data$gender), data$socst)
+plot(factor(data$gender), data$medium)
+# summary statistics
+tapply(data$gender, factor(data$science), summary)
+tapply(data$gender, factor(data$socst), summary)
+tapply(data$gender, factor(data$medium), summary)
+```
+
+**Chú ý**: bạn cần xử lý thêm nếu tập dữ liệu có các giá trị bị thiếu ("NA", "N/A", "null", "*", "", ...). Xem thêm ở [removing-blanks-nas](https://community.rstudio.com/t/removing-blanks-nas/27887/3)
+
+
+
+#### Báo cáo kết quả
+- Sử dụng biểu đồ và tóm tắt số để nhận xét các đặc điểm của phân bố (các) biến đang quan tâm.
+
+Q1: gender, science
+```{r, echo=FALSE, eval=FALSE}
+data %>% 
+group_by(gender) %>%
+summarise(min = min(science), max = max(science),
+mean = mean(science), med = median(science),
+sd = sd(science),
+q1 = quantile(science, probs = 0.25),
+q3 = quantile(science, probs = 0.75), .groups = 'drop')
+
+barplot((prop.table(table(data$gender,data$science),margin = 2)*100), main='Biểu đồ thanh về học sinh đạt điểm khoa học theo tỉ lệ nam nữ ', xlab = "Điểm số", ylab = "%")
+
+```
+Khi nhìn vào biểu đồ ta thấy rằng tỉ lệ nữ chiếm điện tích nhiều hơn so với tỉ lệ nam, và điểm số của nữ cũng cao hơn so với nam
+  
+Q2: gender, socst, science
+```{r, echo=FALSE, eval=FALSE}
+data$gender.f = factor(data$gender, labels=c("male", "female"))
+histogram(~write | gender.f, data)
+```
+  - Outliers: Cả 2 nhóm đều không có giá trị ngoại biên.
+Q3: medium
+  - Center: Trung vị của điểm cuối kỳ của các sinh viên không làm bài tập cộng điểm thấp hơn đáng kể so với trung vị của điểm cuối kỳ của các sinh viên có làm(74.5 so với 82). 
+  
+  - Spread: Điểm cuối kỳ của hai nhóm sinh viên có range xấp xỉ nhau (20 so với 19), tuy nhiên IQR của nhóm 0 (không làm) thấp hơn nhóm 1 (có làm), (6 so với 10). 
+  
+  - Outliers: Cả 2 nhóm đều không có giá trị ngoại biên.
+### Suy diễn
+- Chúng ta đã biết được các đặc trưng quan trọng của dữ liệu sử dụng phân tích dữ liệu thăm dò. Bây giờ chúng ta chuyển sang đánh giá độ mạnh của bằng chứng do dữ liệu cung cấp bằng cách sử dụng các kiểm định thống kê.
+
+#### Xác định loại suy diễn
+- Suy diễn thống kê cho câu hỏi hiện tại thuộc loại nào sau đây?
+
+  - Ước lượng population mean
+  
+  - Ước lượng population proportion
+  
+  - So sánh hai population mean
+  
+  - So sánh hai population proportion
+  
+  - So sánh nhiều hơn population mean
+
+  - Xác định mối quan hệ giữa hai biến phân loại
+  
+  - Xác định mối quan hệ giữa hai biến số
+
+Trả lời:  - Ước lượng population mean
+
+- Kiểm định thống kê phù hợp cho câu hỏi hiện tại?
+
+  - one sample z-test for the mean ($\mu$)
+  
+  - one sample t-test for the mean ($\mu$)
+  
+  - one sample z-test for the proportion ($p$)
+  
+  - two sample t-test for two means ($\mu_1, \mu_2$)
+  
+  - two sample z-test for two proportions ($p_1, p_2$)
+  
+  - paired t-test for the mean difference ($\mu_d$)
+  
+  - chi-squared test for independence 
+  
+  - ANOVA F-test
+  
+  - regression t-test for the slope
+
+
+- Xác định các giả thuyết
+
+  - Null hypothesis: $H_0:$ ???
+
+  - Alternative hypothesis: $H_A:$ ???
+
+
+
+#### Thực hiện phân tích
+- Ở đây chúng ta quan tâm đến tỷ lệ $p$ của dữ liệu đối với biến $x$ với giá trị $p_0$ nào đó. $H_0: p = p_0$.
+
+- **Tính test statistic**
+```{r, eval=FALSE}
+mu1 = ...
+mu2 = ...
+n1 = ...
+n2 = ...
+s1 = ...
+s2 = ...
+se = sqrt(s1^2/n1 + s2^2/n2)
+t = (mu1 - mu2)/se
+# Viết code của bạn ở đây để tính test statistics (giá trị z, t, chi-square, ...) 
+
+```
+
+- **Tính p-value**
+```{r, eval=FALSE}
+# Viết code của bạn ở đây để tính p-value, confidence interval
+
+```
+
+- **Kiểm tra lại bằng các hàm kiểm định trong R**
+
+  - Một số hàm kiểm định phổ biến trong R là `t.test()`, `prop.test`, `aov()`, `chisq.test()`, ...
+
+```{r, eval=FALSE}
+# Viết code của bạn ở đây để thực hiện các kiểm định
+
+```
+
+
+#### Báo cáo kết quả
+- Cho biết $p$-value của kiểm định? 
+
+- Từ $p$-value ta sẽ quyết định bác bỏ hay chấp nhận $H_0$?
+
+## Kết luận
+- Trong bước này, chúng ta giải thích kết quả nhận được từ các phân tích trong bối cảnh của câu hỏi hiện tại.
+
+- Kết quả bạn nhận được cho thấy điều gì?
+
+  - Phân tích thăm dò cho thấy điều gì?
+  
+  - Kiểm định thống kê có cung cấp bằng chứng mạnh mẽ về những điều bạn đã quan sát thấy ở phân tích thăm dò hay không?
+
+
+- Dữ liệu có cung cấp bằng chứng về mối quan hệ nhân quả hay không? Giải thích câu trả lời của bạn.
+
+- Liên hệ các nhận xét bạn đã đưa ra trước khi phân tích dữ liệu bằng cách nhận xét về cả hai điều sau:
+
+  - Kỳ vọng của bạn khác (hoặc không khác) như thế nào so với kết quả thực tế?
+  
+  - Nếu nó có liên quan hoặc có ý nghĩa trong ngữ cảnh, hãy nghĩ ra cách mà những kết quả này có thể được sử dụng trong thực tế.
+
+
+
+## Tổng kết
+- Trong phần cuối cùng của quá trình phân tích dữ liệu, chúng ta tóm tắt công việc của mình và xem xét các hàm ý và hạn chế có thể có trong kết luận của chúng ta.
+
+- Bạn đã giải quyết tất cả các câu hỏi riêng lẻ, hãy viết một báo cáo tóm tắt ngắn về những phát hiện chính mà bạn đã khám phá bằng cách sử dụng dữ liệu.
+
+- Thảo luận về điểm mạnh và điểm yếu trong kết luận của bạn. Đặc biệt, hãy giải quyết từng vấn đề sau:
+
+  - Thiết kế này có cho phép bạn đưa ra kết luận nhân quả không? Tại sao hoặc tại sao không?
+  
+  - Cách lấy mẫu trong nghiên cứu có cho phép bạn tổng quát hóa kết quả đối với quần thể như thế nào?
+

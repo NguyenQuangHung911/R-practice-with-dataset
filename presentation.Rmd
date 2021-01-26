@@ -75,7 +75,7 @@ Columns: 11
 - Dựa trên các số liệu đã có ta tìm ra học sinh giỏi là học sinh có các yếu tố nào(các biến phân loại).
 - Ví dụ: học sinh nữ, học trường công, chủng tộc da trắng,... có xác suất học giỏi nhất.
 - Phân tích học sinh nào học môn nào tốt hơn.
-- Môn nào học sinh nào học tốt hơn?
+- Học sinh như thế nào học môn nào tốt hơn?
 - Học sinh nào có điểm cao nhất?
 - Bằng cách tương tự tìm ra học sinh yếu nhất, và cải thiện trình độ học tập.
 - Kết luận, từ đó đưa ra các phương án để cải thiện trình độ học tập của học sinh để đạt các điểm số cao hơn.
